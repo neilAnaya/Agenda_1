@@ -23,6 +23,7 @@ class AdaptadorUsuarios(
 
         holder.tvUsuario.text = usuario.usuario   // Asignar el nombre de usuario del objeto Usuario al TextView tvUsuario
         holder.tvPais.text = usuario.pais   // Asignar el país del objeto Usuario al TextView tvPais
+        holder.tvFecha.text = usuario.fecha
 
         holder.cvUsuario.setOnClickListener {
             // Configurar un clic en el elemento del ViewHolder (cvUsuario) para editar el usuario
@@ -44,7 +45,9 @@ class AdaptadorUsuarios(
         val cvUsuario = itemView.findViewById<CardView>(R.id.cvUsuario)
         val tvUsuario = itemView.findViewById<TextView>(R.id.tvUsuario)
         val tvPais = itemView.findViewById<TextView>(R.id.tvPais)
+        val tvFecha = itemView.findViewById<TextView>(R.id.tvFecha)
         val btnBorrar = itemView.findViewById<Button>(R.id.btnBorrar)
+
     }
 
 }

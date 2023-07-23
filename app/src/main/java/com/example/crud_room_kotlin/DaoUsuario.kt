@@ -16,8 +16,17 @@ interface DaoUsuario {
     suspend fun agregarUsuario(usuario: Usuario)
 
     // Método para actualizar el campo "pais" de un usuario en la tabla "usuarios" según su nombre de usuario
-    @Query("UPDATE usuarios set pais=:pais WHERE usuario=:usuario")
-    suspend fun actualizarUsuario(usuario: String, pais: String)
+
+    // Define una consulta SQL para actualizar el campo "pais" de un usuario específico en la tabla "usuarios".
+// Se utiliza la anotación @Query para indicar que esta función realiza una consulta SQL personalizada.
+// Los parámetros "usuario" y "pais" serán vinculados a los valores proporcionados cuando se llame a esta función.
+
+   /* @Query("UPDATE usuarios SET pais=:pais  WHERE usuario=:usuario")
+    suspend fun actualizarUsuario(usuario: String, pais: String,)*/
+
+    @Query("UPDATE usuarios SET pais=:pais, fecha=:fecha WHERE usuario=:usuario")
+    suspend fun actualizarUsuario(usuario: String, pais: String, fecha: String)
+
 
     // Método para eliminar un usuario de la tabla "usuarios" según su nombre de usuario
     @Query("DELETE FROM usuarios WHERE usuario=:usuario")

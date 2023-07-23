@@ -7,5 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "usuarios")
 data class Usuario(
     @PrimaryKey var usuario: String,
-    @ColumnInfo(name = "pais") var pais: String
+    @ColumnInfo(name = "pais") var pais: String,
+    @ColumnInfo(name = "fecha") var fecha: String
+
 )

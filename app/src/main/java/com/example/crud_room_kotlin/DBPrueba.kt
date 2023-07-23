@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [Usuario::class],
-    version = 1
+    version = 2
 )
 abstract class DBPrueba: RoomDatabase() {
     abstract fun daoUsuario(): DaoUsuario

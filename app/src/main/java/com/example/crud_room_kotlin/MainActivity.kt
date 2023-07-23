@@ -22,8 +22,13 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
     lateinit var usuario: Usuario
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        usuario = Usuario("", "", "")
+
 //  realizar la configuración inicial de la actividad
         super.onCreate(savedInstanceState)
+
+
 // Inflar el diseño de la actividad utilizando ViewBinding
         binding = ActivityMainBinding.inflate(layoutInflater)
 // Establecer la vista raíz de la actividad a la vista inflada mediante ViewBinding
@@ -32,12 +37,15 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
         binding.rvUsuarios.layoutManager = LinearLayoutManager(this)
 // Crear una instancia de la base de datos Room utilizando databaseBuilder
         room = Room.databaseBuilder(this, DBPrueba::class.java, "dbPruebas").build()
+
 // obtener la lista de usuarios desde la base de datos y mostrarla en el RecyclerView
         obtenerUsuarios(room)
 
 
 // Configuración del clic en el botón btnAddUpdate
         binding.btnAddUpdate.setOnClickListener {
+
+
             // Verificar si los campos de usuario y país están vacíos
             if (binding.etUsuario.text.isNullOrEmpty() || binding.etPais.text.isNullOrEmpty()) {
                 // Si alguno de los campos está vacío, mostrar un mensaje de error y salir de la función
@@ -50,7 +58,9 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
                 // Crear un nuevo objeto Usuario con los valores ingresados en los campos de texto
                 val usuario = Usuario(
                     binding.etUsuario.text.toString().trim(),
-                    binding.etPais.text.toString().trim()
+                    binding.etPais.text.toString().trim(),
+                    binding.etFecha.text.toString().trim()
+
                 )
 
                 // Llamar a la función agregarUsuario() para agregar el nuevo usuario a la base de datos
@@ -58,6 +68,7 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
             } else if (binding.btnAddUpdate.text == "actualizar") {
                 // Si el texto del botón es "actualizar", actualizar el campo "pais" del usuario existente
                 usuario.pais = binding.etPais.text.toString().trim()
+                usuario.fecha = binding.etFecha.text.toString().trim()
 
                 // Llamar a la función actualizarUsuario() para actualizar el usuario en la base de datos
                 actualizarUsuario(room, usuario)
@@ -99,9 +110,9 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
     }
 
 
-    fun actualizarUsuario(room: DBPrueba, usuario: Usuario) {
+    fun actualizarUsuario(room: DBPrueba, usuario: Usuario ) {
         lifecycleScope.launch {
-            room.daoUsuario().actualizarUsuario(usuario.usuario, usuario.pais)
+            room.daoUsuario().actualizarUsuario(usuario.usuario, usuario.pais, usuario.fecha)
             obtenerUsuarios(room)
             limpiarCampos()
         }
@@ -111,10 +122,12 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
         // Reiniciar los valores del objeto usuario (si es que existe)
         usuario.usuario = ""
         usuario.pais = ""
+        usuario.fecha = ""
 
         // Borrar el texto de los campos de entrada en la interfaz de usuario
         binding.etUsuario.setText("")
         binding.etPais.setText("")
+        binding.etFecha.setText("")
 
         // Verificar si el botón actual es de actualización y cambiarlo a "agregar"
         // También se habilita el campo de usuario para permitir la adición de un nuevo usuario
@@ -131,6 +144,7 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
         this.usuario = usuario
         binding.etUsuario.setText(this.usuario.usuario)
         binding.etPais.setText(this.usuario.pais)
+        binding.etFecha.setText(this.usuario.fecha)
     }
 
     override fun onDeleteItemClick(usuario: Usuario) {

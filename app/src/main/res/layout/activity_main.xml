@@ -18,14 +18,78 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Usuario"/>
+            android:hint="Titulo"/>
 
         <EditText
             android:id="@+id/etPais"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Pais"/>
+            android:hint="Descripcion"/>
+
+        <EditText
+            android:id="@+id/etFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Fecha"/>
+
+
+
+        <Button
+            android:id="@+id/btnMostrarCalendario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mostrar Calendario"
+            android:layout_gravity="center"/>
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible" />
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioLxv"
+                android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="l-x-v" />
+
+            <RadioButton
+                android:id="@+id/radioMj"
+                android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="m-j" />
+
+            <RadioButton
+                android:id="@+id/radioSd"
+                android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="s-d" />
+
+            <RadioButton
+                android:id="@+id/radioLmxjv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="l-m-x-j-v" />
+
+            <RadioButton
+                android:id="@+id/radioTodos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="todos" />
+
+
+
+        </RadioGroup>
+
 
         <Button
             android:id="@+id/btnAddUpdate"
