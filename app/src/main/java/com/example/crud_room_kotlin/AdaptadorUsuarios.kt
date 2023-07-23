@@ -19,18 +19,21 @@ class AdaptadorUsuarios(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val usuario = listaUsuarios[position]
+        val usuario = listaUsuarios[position]   // Obtener el objeto Usuario correspondiente a la posición actual
 
-        holder.tvUsuario.text = usuario.usuario
-        holder.tvPais.text = usuario.pais
+        holder.tvUsuario.text = usuario.usuario   // Asignar el nombre de usuario del objeto Usuario al TextView tvUsuario
+        holder.tvPais.text = usuario.pais   // Asignar el país del objeto Usuario al TextView tvPais
 
         holder.cvUsuario.setOnClickListener {
+            // Configurar un clic en el elemento del ViewHolder (cvUsuario) para editar el usuario
             listener.onEditItemClick(usuario)
         }
 
         holder.btnBorrar.setOnClickListener {
+            // Configurar un clic en el botón de borrado (btnBorrar) del ViewHolder para eliminar el usuario
             listener.onDeleteItemClick(usuario)
         }
+
     }
 
     override fun getItemCount(): Int {
