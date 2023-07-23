@@ -1,7 +1,9 @@
 package com.example.crud_room_kotlin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -50,6 +52,13 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
 
                 actualizarUsuario(room, usuario)
             }
+        }
+
+        val siguiente: View = findViewById(R.id.Vagua)
+
+        siguiente.setOnClickListener {
+            val intent = Intent(this,SaludAgua:: class.java)
+            startActivity(intent)
         }
 
     }

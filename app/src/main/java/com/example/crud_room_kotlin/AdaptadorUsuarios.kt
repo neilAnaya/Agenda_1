@@ -21,6 +21,7 @@ class AdaptadorUsuarios(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val usuario = listaUsuarios[position]
 
+
         holder.tvUsuario.text = usuario.usuario
         holder.tvPais.text = usuario.pais
 
@@ -42,6 +43,7 @@ class AdaptadorUsuarios(
         val tvUsuario = itemView.findViewById<TextView>(R.id.tvUsuario)
         val tvPais = itemView.findViewById<TextView>(R.id.tvPais)
         val btnBorrar = itemView.findViewById<Button>(R.id.btnBorrar)
+
     }
 
 }
