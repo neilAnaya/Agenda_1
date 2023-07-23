@@ -5,6 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import com.example.crud_room_kotlin.Daos.DaoAgua
+import com.example.crud_room_kotlin.modelo.DatabaseProvider
+import com.example.crud_room_kotlin.modelo.Salud
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class SaludAgua : AppCompatActivity() {
 
@@ -21,12 +27,27 @@ class SaludAgua : AppCompatActivity() {
         llenarAgua = findViewById(R.id.btnLlenarAgua)
 
         llenarAgua.setOnClickListener {
+            nivelAgua++
+            LlenarAguaL()
+
+            //Guardar el llenado de agua
+
+            val daoAgua = DatabaseProvider.getDatabase(this).daoAgua()
+            GlobalScope.launch(Dispatchers.IO){
+                daoAgua.insert(Salud(nivelAgua = nivelAgua))
+            }
+        }
+
+        val daoAgua = DatabaseProvider.getDatabase(this).daoAgua()
+        GlobalScope.launch(Dispatchers.IO) {
+            val latestDoll = daoAgua.getLatestDoll()
+            nivelAgua = latestDoll?.nivelAgua ?: 0
             LlenarAguaL()
         }
     }
 
     private fun LlenarAguaL(){
-        nivelAgua++;
+
 
         animacionLlenado = AnimationDrawable()
         when(nivelAgua){

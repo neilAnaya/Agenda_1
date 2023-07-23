@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.crud_room_kotlin.modelo.Usuario
 
 class AdaptadorUsuarios(
     val listaUsuarios: MutableList<Usuario>,

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import com.example.crud_room_kotlin.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
+import com.example.crud_room_kotlin.modelo.Usuario
 
 class MainActivity : AppCompatActivity(), AdaptadorListener {
 

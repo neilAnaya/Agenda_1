@@ -3,6 +3,7 @@ package com.example.crud_room_kotlin
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.example.crud_room_kotlin.modelo.Usuario
 
 @Dao
 interface DaoUsuario {
