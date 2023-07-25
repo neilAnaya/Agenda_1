@@ -1,5 +1,5 @@
 package com.example.crud_room_kotlin.modelo
-
+import com.example.crud_room_kotlin.modelo.Usuario
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

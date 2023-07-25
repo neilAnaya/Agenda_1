@@ -5,11 +5,10 @@ import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import android.media.RingtoneManager
 import android.net.Uri
-
 
 class AlarmReceiver : BroadcastReceiver() {
 
@@ -25,11 +24,11 @@ class AlarmReceiver : BroadcastReceiver() {
             notificationManager.createNotificationChannel(channel)
         }
 
-        val smallIcon = R.drawable.campana // Reemplaza "ic_notification_icon" con el nombre de tu ícono en los recursos
+        val smallIcon = R.drawable.campana
         val notificationBuilder = NotificationCompat.Builder(context, channelId)
             .setContentTitle("Alarma")
             .setContentText("Nueva tarea disnponible.")
-            .setSmallIcon(smallIcon) // Establecer el ícono aquí
+            .setSmallIcon(smallIcon)
             .setAutoCancel(false)
             .setSound(customSoundUri)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -38,6 +37,7 @@ class AlarmReceiver : BroadcastReceiver() {
         val notification = notificationBuilder.build()
         notificationManager.notify(0, notification)
 
-        }
-
+        /*val mp = MediaPlayer.create(context, R.raw.mariobros)
+        mp.start()*/
+    }
 }
