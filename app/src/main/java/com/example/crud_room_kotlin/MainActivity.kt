@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
                 },
                 hour,
                 minute,
-                true // true para usar el formato de 24 horas, false para usar el formato de 12 horas
+                false // true para usar el formato de 24 horas, false para usar el formato de 12 horas
             )
 
             timePickerDialog.show()

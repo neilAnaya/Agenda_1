@@ -49,8 +49,9 @@ class SaludAgua : AppCompatActivity() {
                 daoAgua.insert(Salud(nivelAgua = nivelAgua))
             }*/
             if (nivelAgua == MAX_WATER_LEVEL) {
-
+                p1.setImageResource(R.drawable.persona1)
                 showCongratulationsMessage()
+                resetWaterLevel()
                 //
             // showConfirmationDialog()
             }

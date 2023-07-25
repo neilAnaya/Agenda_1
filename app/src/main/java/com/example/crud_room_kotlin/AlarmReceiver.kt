@@ -37,7 +37,8 @@ class AlarmReceiver : BroadcastReceiver() {
         val notification = notificationBuilder.build()
         notificationManager.notify(0, notification)
 
-        /*val mp = MediaPlayer.create(context, R.raw.mariobros)
-        mp.start()*/
+        val mp = MediaPlayer.create(context, R.raw.pitido)
+        mp.start()
+
     }
 }
