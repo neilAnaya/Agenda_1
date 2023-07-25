@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
         obtenerUsuarios(room)
 
         binding.btnAddUpdate.setOnClickListener {
-            if(binding.etUsuario.text.isNullOrEmpty() || binding.etPais.text.isNullOrEmpty()) {
+            if (binding.etUsuario.text.isNullOrEmpty() || binding.etPais.text.isNullOrEmpty()) {
                 Toast.makeText(this, "DEBES LLENAR TODOS LOS CAMPOS", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -48,18 +48,11 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
                 )
 
                 agregarUsuario(room, usuario)
-            } else if(binding.btnAddUpdate.text.equals("actualizar")) {
+            } else if (binding.btnAddUpdate.text.equals("actualizar")) {
                 usuario.pais = binding.etPais.text.toString().trim()
 
                 actualizarUsuario(room, usuario)
             }
-        }
-
-        val siguiente: View = findViewById(R.id.Vagua)
-
-        siguiente.setOnClickListener {
-            val intent = Intent(this,SaludAgua:: class.java)
-            startActivity(intent)
         }
 
     }
