@@ -34,6 +34,12 @@
             android:layout_gravity="center"
             android:text="agregar" />
 
+        <Button
+            android:id="@+id/Vagua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salud" />
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

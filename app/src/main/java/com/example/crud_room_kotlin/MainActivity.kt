@@ -1,13 +1,16 @@
 package com.example.crud_room_kotlin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import com.example.crud_room_kotlin.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
+import com.example.crud_room_kotlin.modelo.Usuario
 
 class MainActivity : AppCompatActivity(), AdaptadorListener {
 
@@ -64,6 +67,15 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
             }
         }
 
+<<<<<<< HEAD
+=======
+        val siguiente: View = findViewById(R.id.Vagua)
+
+        siguiente.setOnClickListener {
+            val intent = Intent(this,SaludAgua:: class.java)
+            startActivity(intent)
+        }
+>>>>>>> origin/Renzo
 
     }
 

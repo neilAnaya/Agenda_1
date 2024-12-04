@@ -1,4 +1,4 @@
-package com.example.crud_room_kotlin
+package com.example.crud_room_kotlin.modelo
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

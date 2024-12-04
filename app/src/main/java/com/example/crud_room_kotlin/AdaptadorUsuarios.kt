@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.crud_room_kotlin.modelo.Usuario
 
 class AdaptadorUsuarios(
     val listaUsuarios: MutableList<Usuario>,
@@ -19,10 +20,7 @@ class AdaptadorUsuarios(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val usuario = listaUsuarios[position]   // Obtener el objeto Usuario correspondiente a la posición actual
-
-        holder.tvUsuario.text = usuario.usuario   // Asignar el nombre de usuario del objeto Usuario al TextView tvUsuario
-        holder.tvPais.text = usuario.pais   // Asignar el país del objeto Usuario al TextView tvPais
+        
 
         holder.cvUsuario.setOnClickListener {
             // Configurar un clic en el elemento del ViewHolder (cvUsuario) para editar el usuario
@@ -45,6 +43,7 @@ class AdaptadorUsuarios(
         val tvUsuario = itemView.findViewById<TextView>(R.id.tvUsuario)
         val tvPais = itemView.findViewById<TextView>(R.id.tvPais)
         val btnBorrar = itemView.findViewById<Button>(R.id.btnBorrar)
+
     }
 
 }
